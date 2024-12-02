@@ -15,6 +15,7 @@
             <img
                 :src="props.cocktail.image"
                 :alt="props.cocktail.name"
+                loading="lazy"
                 class="post-single__img"
             />
         </div>
