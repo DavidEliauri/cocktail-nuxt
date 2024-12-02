@@ -5,6 +5,18 @@
 
     const cocktailCode = computed(() => (route.params.slug as string) || '');
 
+    const appConfig = useAppConfig();
+
+    const cocktailName = computed(() => {
+        return appConfig.cocktailsCodes.find(
+            cocktail => cocktail.code === cocktailCode.value,
+        )?.name;
+    });
+
+    useSeoMeta({
+        title: cocktailName.value ?? cocktailCode.value,
+    });
+
     const cocktailStore = useCocktailStore();
 
     const cocktails = computed(
