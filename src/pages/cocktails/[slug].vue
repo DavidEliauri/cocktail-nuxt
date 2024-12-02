@@ -26,12 +26,19 @@
 </script>
 
 <template>
-    <div class="posts-list">
-        <CocktailSingle
-            v-for="cocktail in cocktails"
-            :key="cocktail.id"
-            :cocktail="cocktail"
-        />
+    <div>
+        <div
+            v-if="cocktails.length"
+            class="posts-list"
+        >
+            <CocktailSingle
+                v-for="cocktail in cocktails"
+                :key="cocktail.id"
+                :cocktail="cocktail"
+            />
+        </div>
+
+        <div v-else>No cocktails found</div>
     </div>
 </template>
 

@@ -1,42 +1,23 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+    const appConfig = useAppConfig();
+
+    const cocktails = computed(() => appConfig.cocktailsCodes);
+</script>
 
 <template>
     <aside class="sidebar">
         <nav>
             <ul class="sidebar__list">
-                <li class="sidebar__list-item">
+                <li
+                    v-for="cocktail in cocktails"
+                    :key="cocktail.code"
+                    class="sidebar__list-item"
+                >
                     <NuxtLink
-                        href="/margarita"
+                        :href="`/cocktails/${cocktail.code}`"
                         class="sidebar__list-link"
                     >
-                        Margarita
-                    </NuxtLink>
-                </li>
-
-                <li class="sidebar__list-item">
-                    <NuxtLink
-                        href="/mojito"
-                        class="sidebar__list-link"
-                    >
-                        Mojito
-                    </NuxtLink>
-                </li>
-
-                <li class="sidebar__list-item">
-                    <NuxtLink
-                        href="/a1"
-                        class="sidebar__list-link"
-                    >
-                        A1
-                    </NuxtLink>
-                </li>
-
-                <li class="sidebar__list-item">
-                    <NuxtLink
-                        href="/kir"
-                        class="sidebar__list-link"
-                    >
-                        Kir
+                        {{ cocktail.name }}
                     </NuxtLink>
                 </li>
             </ul>

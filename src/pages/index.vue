@@ -1,6 +1,14 @@
 <script setup lang="ts">
     definePageMeta({
-        middleware: [() => navigateTo('/margarita')],
+        middleware: [
+            () => {
+                const appConfig = useAppConfig();
+
+                return navigateTo(
+                    `/cocktails/${appConfig.cocktailsCodes[0].code}`,
+                );
+            },
+        ],
     });
 </script>
 
