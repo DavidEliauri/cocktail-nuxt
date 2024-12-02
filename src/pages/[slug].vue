@@ -24,7 +24,7 @@
 <style lang="scss" scoped>
     .posts-list {
         & > * {
-            margin-top: 32px;
+            margin-top: 40px;
 
             &:first-child {
                 margin-top: 0;
