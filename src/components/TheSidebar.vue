@@ -5,39 +5,39 @@
         <nav>
             <ul class="sidebar__list">
                 <li class="sidebar__list-item">
-                    <a
-                        href="#"
+                    <NuxtLink
+                        href="/margarita"
                         class="sidebar__list-link"
                     >
                         Margarita
-                    </a>
+                    </NuxtLink>
                 </li>
 
                 <li class="sidebar__list-item">
-                    <a
-                        href="#"
+                    <NuxtLink
+                        href="/mojito"
                         class="sidebar__list-link"
                     >
                         Mojito
-                    </a>
+                    </NuxtLink>
                 </li>
 
                 <li class="sidebar__list-item">
-                    <a
-                        href="#"
+                    <NuxtLink
+                        href="/a1"
                         class="sidebar__list-link"
                     >
                         A1
-                    </a>
+                    </NuxtLink>
                 </li>
 
                 <li class="sidebar__list-item">
-                    <a
-                        href="#"
+                    <NuxtLink
+                        href="/kir"
                         class="sidebar__list-link"
                     >
                         Kir
-                    </a>
+                    </NuxtLink>
                 </li>
             </ul>
         </nav>

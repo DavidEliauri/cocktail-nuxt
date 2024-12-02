@@ -1,31 +1,36 @@
 <script setup lang="ts">
-    import CocktailApi from '@/api/Cocktail/CocktailApi';
+    import type Cocktail from '@/api/Cocktail/models/Cocktail';
 
-    onMounted(async () => {
-        console.log(await CocktailApi.getCocktails('margarita'));
-    });
+    const props = defineProps<{
+        cocktail: Cocktail;
+    }>();
 </script>
 
 <template>
     <div class="post-single">
-        <div class="post-single__img-wrapper">
+        <div
+            v-if="props.cocktail.image"
+            class="post-single__img-wrapper"
+        >
             <img
-                src="https://www.thecocktaildb.com/images/media/drink/5noda61589575158.jpg"
-                alt="Cocktail"
+                :src="props.cocktail.image"
+                :alt="props.cocktail.name"
                 class="post-single__img"
             />
         </div>
 
         <div class="post-single__content">
-            <h1 class="post-single__title">strDrink</h1>
+            <h1 class="post-single__title">
+                {{ props.cocktail.name }}
+            </h1>
 
             <div class="post-single__content-blocks">
                 <div>
-                    <div>strCategory</div>
+                    <div>{{ props.cocktail.category }}</div>
 
-                    <div>strAlcoholic</div>
+                    <div>{{ props.cocktail.alcoholic }}</div>
 
-                    <div>strGlass</div>
+                    <div>{{ props.cocktail.glass }}</div>
                 </div>
 
                 <div>
@@ -33,7 +38,9 @@
                         Instructions:
                     </div>
 
-                    <div>strinstructions</div>
+                    <div>
+                        {{ props.cocktail.instructions }}
+                    </div>
                 </div>
 
                 <div>
@@ -43,15 +50,23 @@
 
                     <div class="post-single__content-list-column">
                         <ul>
-                            <li>strMeasure1</li>
-
-                            <li>strMeasure2</li>
+                            <li
+                                v-for="(ingredient, index) in props.cocktail
+                                    .ingredients"
+                                :key="index"
+                            >
+                                {{ ingredient.ingredient }}
+                            </li>
                         </ul>
 
                         <ul>
-                            <li>stringredient1</li>
-
-                            <li>stringredient2</li>
+                            <li
+                                v-for="(ingredient, index) in props.cocktail
+                                    .ingredients"
+                                :key="index"
+                            >
+                                {{ ingredient.measure }}
+                            </li>
                         </ul>
                     </div>
                 </div>

@@ -14,6 +14,7 @@
     },
     "dependencies": {
         "@nuxt/eslint": "^0.7.2",
+        "axios": "^1.7.8",
         "eslint": "^9.16.0",
         "nuxt": "^3.14.1592",
         "reset-css": "^5.0.2",
