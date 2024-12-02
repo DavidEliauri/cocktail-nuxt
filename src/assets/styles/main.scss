@@ -1,0 +1,19 @@
+@import '@@/node_modules/reset-css/reset.css';
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    min-width: 360px;
+}
+
+.container {
+    margin: 0 auto;
+    padding: 0 16px;
+    max-width: 640px;
+
+    @media (min-width: 1024px) {
+        max-width: 1024px;
+    }
+}

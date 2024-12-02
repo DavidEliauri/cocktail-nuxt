@@ -4,4 +4,5 @@ export default defineNuxtConfig({
     devtools: { enabled: true },
     srcDir: './src',
     modules: ['@nuxt/eslint'],
+    css: ['@/assets/styles/main.scss'],
 });
