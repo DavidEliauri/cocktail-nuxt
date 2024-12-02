@@ -56,6 +56,14 @@
 
         &__list {
             font-size: 18px;
+
+            & > * {
+                margin-top: 4px;
+
+                &:first-child {
+                    margin-top: 0;
+                }
+            }
         }
 
         &__list-link {
@@ -66,7 +74,7 @@
             text-decoration: none;
             border: 2px solid transparent;
 
-            &.active,
+            &.router-link-exact-active,
             &:hover {
                 background: rgba($color: black, $alpha: 0.1);
                 border-color: rgba($color: black, $alpha: 0.3);
