@@ -1,13 +1,27 @@
 <script setup lang="ts">
-    import CocktailApi from '@/api/Cocktail/CocktailApi';
+    import { useCocktailStore } from '@/stores/cocktail';
 
     const route = useRoute();
 
-    const cocktailName = computed(() => (route.params.slug as string) || '');
+    const cocktailCode = computed(() => (route.params.slug as string) || '');
 
-    const { data: cocktails } = await useAsyncData(
-        `cocktail-${cocktailName.value}`,
-        () => CocktailApi.getCocktails(cocktailName.value),
+    const cocktailStore = useCocktailStore();
+
+    const cocktails = computed(
+        () =>
+            cocktailStore.cocktails.find(
+                cocktail => cocktail.cocktailCode === cocktailCode.value,
+            )?.cocktails ?? [],
+    );
+
+    await useAsyncData(
+        `cocktail-${cocktailCode.value}`,
+        () => cocktailStore.getCocktails(cocktailCode.value).then(() => true),
+        {
+            getCachedData: () => {
+                return cocktails.value.length > 0 ? true : undefined;
+            },
+        },
     );
 </script>
 
