@@ -8,20 +8,21 @@
         "generate": "nuxt generate",
         "preview": "nuxt preview",
         "postinstall": "nuxt prepare",
-        "format": "prettier --write src/"
+        "format": "prettier --write src/",
+        "lint": "eslint .",
+        "lint:fix": "eslint . --fix"
     },
     "dependencies": {
+        "@nuxt/eslint": "^0.7.2",
+        "eslint": "^9.16.0",
         "nuxt": "^3.14.1592",
         "vue": "latest",
         "vue-router": "latest"
     },
     "devDependencies": {
         "@eslint/js": "^9.15.0",
-        "eslint": "^9.15.0",
-        "eslint-config-prettier": "^9.1.0",
-        "eslint-plugin-vue": "^9.31.0",
         "globals": "^15.12.0",
         "prettier": "3.4.1",
-        "typescript-eslint": "^8.16.0"
+        "typescript": "^5.7.2"
     }
 }
